@@ -1,0 +1,40 @@
+# src/main/resources/application-dev.yml
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update          # auto-create tables in dev
+    show-sql: true
+
+
+
+gigshield:
+
+  # Add inside gigshield: block in application-dev.yml
+  gigshield:
+    otp:
+      expiry-minutes: 5
+      max-attempts: 3
+
+    sms:
+      mock: true   # OTP printed to logs in dev
+
+  jwt:
+    secret: dev-only-secret-key-minimum-32-characters-long!!
+
+  ml:
+    base-url: http://localhost:5000
+    connect-timeout-ms: 3000
+    read-timeout-ms: 5000
+
+  razorpay:
+    key-id: rzp_test_REPLACE_ME
+    key-secret: REPLACE_ME_SECRET
+    payout-account-id: ba_test_REPLACE_ME
+    webhook-secret: whsec_REPLACE_ME
+
+logging:
+  level:
+    com.gigshield: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE

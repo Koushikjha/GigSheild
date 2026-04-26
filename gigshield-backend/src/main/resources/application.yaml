@@ -1,0 +1,185 @@
+# src/main/resources/application.yml
+spring:
+  config:
+    import: optional:application-secrets.yml
+  application:
+    name: gigshield
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  # ── MySQL (JPA) ────────────────────────────────────────────────────────────
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/gigshield?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Kolkata&allowPublicKeyRetrieval=true}
+    #username: ${DB_USERNAME:root}
+    #password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: GigShieldHikariPool
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 30000
+      connection-timeout: 20000
+      max-lifetime: 1800000
+
+  # ── JPA / Hibernate ────────────────────────────────────────────────────────
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:validate}
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+
+  # ── MongoDB (Claims / Events) ───────────────────────────────────────────────
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/gigshield}
+      auto-index-creation: true
+
+    # ── Redis (Sessions / Cache) ──────────────────────────────────────────────
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 4
+          min-idle: 1
+          max-wait: 1000ms
+
+  # ── Flyway migrations ──────────────────────────────────────────────────────
+  #flyway:
+   # enabled: true
+    #locations: classpath:db/migration
+    #baseline-on-migrate: true
+    #validate-on-migrate: true
+
+  # ── Jackson ───────────────────────────────────────────────────────────────
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-unknown-properties: false
+    default-property-inclusion: non_null
+    time-zone: Asia/Kolkata
+
+# ── Server ────────────────────────────────────────────────────────────────────
+server:
+  address: 0.0.0.0
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 1024
+  error:
+    include-message: never        # never leak stack traces to clients
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: false
+
+# ── Actuator ──────────────────────────────────────────────────────────────────
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: GigShield
+    description: Parametric micro-insurance for gig workers
+    version: 1.0.0
+
+# ── GigShield custom properties ───────────────────────────────────────────────
+gigshield:
+  otp:
+    expiry-minutes: 5
+    max-attempts: 3
+
+    sms:
+      mock: ${SMS_MOCK:true}
+      provider-url: ${SMS_PROVIDER_URL:}
+      api-key: ${SMS_API_KEY:}
+
+  #openmeteo:
+  #  api-url: https://api.open-meteo.com/v1/forecast
+
+  #weather:
+  #  api-url: https://api.openweathermap.org/data/2.5/weather
+  #  api-key: f103d031fdb28a77486ffe220d63cfbe
+
+  #aqi:
+  #  api-url: https://api.waqi.info/feed
+  #  api-key: c9018f5f03bef178eb20ea4040bc78e6ae516696
+
+  jwt:
+    secret: ${JWT_SECRET}               # mandatory — no default, must be set via env
+    expiry-ms: 86400000                 # 24 h
+
+  ml:
+    base-url: ${ML_BASE_URL:http://localhost:5000}
+    connect-timeout-ms: 3000
+    read-timeout-ms: 5000
+
+  razorpay:
+    #key-id: ${RAZORPAY_KEY_ID}          # mandatory
+    #key-secret: ${RAZORPAY_KEY_SECRET}  # mandatory
+    payout-account-id: ${RAZORPAY_PAYOUT_ACCOUNT_ID:}
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:}
+
+  monitored-cities: Delhi,Mumbai,Bengaluru,Chennai,Hyderabad,Kolkata
+  scheduler:
+      poll-interval-ms: 900000
+
+  #thresholds:
+  #  rain-mm: 35.0
+  #  aqi: 300
+  #  war-payout-cap-inr: 500
+  #  traffic-payout-cap-inr: 200
+  #  fraud-auto-approve: 40
+  #  fraud-strike-ban-count: 3
+  #  premium-min-inr: 15
+  #  premium-max-inr: 30
+  #  payout-ratio-min: 0.30
+  #  payout-ratio-max: 0.40
+
+  cache:
+    risk-score-ttl-sec: 3600
+    session-ttl-sec: 86400
+    trigger-ttl-sec: 900
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+logging:
+  level:
+    root: INFO
+    com.gigshield: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file:    "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/gigshield.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
