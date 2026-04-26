@@ -1,0 +1,59 @@
+{
+  "defaultZoneId": "central-market",
+  "defaultWeekStart": "2026-03-30",
+  "zones": {
+    "central-market": {
+      "name": "Central Market",
+      "baseScore": 26,
+      "basePremium": 16,
+      "coveredEvents": ["Rain", "AQI", "Blockage", "Curfew"]
+    },
+    "harbor-bridge": {
+      "name": "Harbor Bridge",
+      "baseScore": 42,
+      "basePremium": 19,
+      "coveredEvents": ["Rain", "AQI", "Blockage", "Curfew"]
+    },
+    "metro-ring": {
+      "name": "Metro Ring",
+      "baseScore": 63,
+      "basePremium": 24,
+      "coveredEvents": ["Rain", "AQI", "Blockage", "Curfew"]
+    },
+    "south-dock": {
+      "name": "South Dock",
+      "baseScore": 54,
+      "basePremium": 21,
+      "coveredEvents": ["Rain", "AQI", "Blockage", "Curfew"]
+    },
+    "default": {
+      "name": "Central Market",
+      "baseScore": 30,
+      "basePremium": 17,
+      "coveredEvents": ["Rain", "AQI", "Blockage", "Curfew"]
+    }
+  },
+  "weeks": {
+    "2026-03-30": {
+      "label": "Current week",
+      "multiplier": 1,
+      "shift": 0,
+      "premiumShift": 0,
+      "forecast": "This week looks manageable with one late-week rain pocket."
+    },
+    "2026-04-06": {
+      "label": "Next week",
+      "multiplier": 1.18,
+      "shift": 4,
+      "premiumShift": 2,
+      "forecast": "Forecast pressure rises mid-week with higher rainfall and AQI volatility."
+    },
+    "default": {
+      "label": "Custom week",
+      "multiplier": 1.08,
+      "shift": 2,
+      "premiumShift": 1,
+      "forecast": "Moderate disruption risk with mixed weather signals."
+    }
+  }
+}

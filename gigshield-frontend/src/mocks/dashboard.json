@@ -1,0 +1,113 @@
+{
+  "worker": {
+    "name": "Aarav Sharma",
+    "zoneId": "central-market",
+    "zone": "Central Market",
+    "weeklyIncome": 4200
+  },
+  "metrics": {
+    "payoutsThisMonth": 1680,
+    "weeksCovered": 9,
+    "riskLevel": "medium",
+    "riskScore": 46
+  },
+  "activePolicy": {
+    "policyId": "central-market-2026-03-30",
+    "planName": "Standard",
+    "status": "active",
+    "zone": "Central Market",
+    "coverageAmount": 1470,
+    "premiumPaid": 22,
+    "startDate": "2026-03-30",
+    "endDate": "2026-04-05"
+  },
+  "payouts": [
+    {
+      "id": "pay_901",
+      "eventType": "Rainfall breach",
+      "date": "2026-04-02",
+      "amount": 420,
+      "status": "Paid",
+      "zone": "Central Market"
+    },
+    {
+      "id": "pay_900",
+      "eventType": "AQI spike",
+      "date": "2026-03-28",
+      "amount": 360,
+      "status": "Paid",
+      "zone": "Central Market"
+    },
+    {
+      "id": "pay_899",
+      "eventType": "Road blockage",
+      "date": "2026-03-23",
+      "amount": 310,
+      "status": "Processing",
+      "zone": "Harbor Bridge"
+    },
+    {
+      "id": "pay_898",
+      "eventType": "Curfew restriction",
+      "date": "2026-03-17",
+      "amount": 290,
+      "status": "Paid",
+      "zone": "Metro Ring"
+    },
+    {
+      "id": "pay_897",
+      "eventType": "Rainfall breach",
+      "date": "2026-03-12",
+      "amount": 220,
+      "status": "Under review",
+      "zone": "South Dock"
+    }
+  ],
+  "zoneStatusSequence": [
+    {
+      "id": "safe",
+      "tone": "safe",
+      "title": "Zone safe",
+      "description": "No active rainfall, AQI, or blockage triggers in Central Market.",
+      "heroLabel": "On delivery · Eligible",
+      "heroDetail": "You are on an active delivery route and protected if a trigger fires now.",
+      "onDelivery": true,
+      "eligible": true,
+      "processingAmount": null,
+      "riskLevel": "low",
+      "riskScore": 23,
+      "statusText": "clear",
+      "updatedAt": "2026-04-03T09:30:00Z"
+    },
+    {
+      "id": "warning",
+      "tone": "warning",
+      "title": "Risk detected",
+      "description": "AQI and rainfall are climbing. The zone is being watched closely.",
+      "heroLabel": "Not on delivery · Not eligible",
+      "heroDetail": "No active delivery is in progress, so an event right now would not pay out.",
+      "onDelivery": false,
+      "eligible": false,
+      "processingAmount": null,
+      "riskLevel": "medium",
+      "riskScore": 56,
+      "statusText": "watching",
+      "updatedAt": "2026-04-03T09:30:30Z"
+    },
+    {
+      "id": "danger",
+      "tone": "danger",
+      "title": "Event active — payout processing",
+      "description": "Curfew and road blockage thresholds have been breached near your zone.",
+      "heroLabel": "Payout triggered · ₹420 processing",
+      "heroDetail": "The engine matched you to an active delivery and started the payout flow.",
+      "onDelivery": true,
+      "eligible": true,
+      "processingAmount": 420,
+      "riskLevel": "high",
+      "riskScore": 82,
+      "statusText": "paying",
+      "updatedAt": "2026-04-03T09:31:00Z"
+    }
+  ]
+}

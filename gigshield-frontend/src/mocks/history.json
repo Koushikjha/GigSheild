@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "totalReceived": 1680,
+    "totalPaidIn": 198
+  },
+  "payouts": [
+    {
+      "id": "pay_901",
+      "eventType": "Rainfall breach",
+      "date": "2026-04-02",
+      "amount": 420,
+      "status": "Paid",
+      "zone": "Central Market"
+    },
+    {
+      "id": "pay_900",
+      "eventType": "AQI spike",
+      "date": "2026-03-28",
+      "amount": 360,
+      "status": "Paid",
+      "zone": "Central Market"
+    },
+    {
+      "id": "pay_899",
+      "eventType": "Road blockage",
+      "date": "2026-03-23",
+      "amount": 310,
+      "status": "Processing",
+      "zone": "Harbor Bridge"
+    },
+    {
+      "id": "pay_898",
+      "eventType": "Curfew restriction",
+      "date": "2026-03-17",
+      "amount": 290,
+      "status": "Paid",
+      "zone": "Metro Ring"
+    },
+    {
+      "id": "pay_897",
+      "eventType": "Rainfall breach",
+      "date": "2026-03-12",
+      "amount": 220,
+      "status": "Under review",
+      "zone": "South Dock"
+    },
+    {
+      "id": "pay_896",
+      "eventType": "AQI spike",
+      "date": "2026-03-06",
+      "amount": 160,
+      "status": "Paid",
+      "zone": "Central Market"
+    }
+  ],
+  "policies": [
+    {
+      "id": "policy_104",
+      "planName": "Standard",
+      "status": "active",
+      "zone": "Central Market",
+      "premiumPaid": 22,
+      "coverageAmount": 1470,
+      "startDate": "2026-03-30",
+      "endDate": "2026-04-05"
+    },
+    {
+      "id": "policy_103",
+      "planName": "Standard",
+      "status": "expired",
+      "zone": "Central Market",
+      "premiumPaid": 21,
+      "coverageAmount": 1470,
+      "startDate": "2026-03-23",
+      "endDate": "2026-03-29"
+    },
+    {
+      "id": "policy_102",
+      "planName": "Basic",
+      "status": "expired",
+      "zone": "Harbor Bridge",
+      "premiumPaid": 16,
+      "coverageAmount": 1260,
+      "startDate": "2026-03-16",
+      "endDate": "2026-03-22"
+    },
+    {
+      "id": "policy_101",
+      "planName": "Full Shield",
+      "status": "expired",
+      "zone": "Metro Ring",
+      "premiumPaid": 28,
+      "coverageAmount": 1680,
+      "startDate": "2026-03-09",
+      "endDate": "2026-03-15"
+    }
+  ]
+}

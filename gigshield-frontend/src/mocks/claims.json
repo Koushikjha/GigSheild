@@ -1,0 +1,48 @@
+{
+  "claims": [
+    {
+      "id": "claim_701",
+      "eventType": "Event active — rainfall",
+      "date": "2026-04-02",
+      "zone": "Central Market",
+      "severity": "High",
+      "amount": 420,
+      "status": "Processing",
+      "currentStep": 3,
+      "details": "Triggered while you were on an active order and the risk threshold was breached."
+    },
+    {
+      "id": "claim_700",
+      "eventType": "AQI spike",
+      "date": "2026-03-28",
+      "zone": "Central Market",
+      "severity": "Medium",
+      "amount": 360,
+      "status": "Paid",
+      "currentStep": 4,
+      "details": "Verified against zone data and paid to the linked account."
+    },
+    {
+      "id": "claim_699",
+      "eventType": "Road blockage",
+      "date": "2026-03-23",
+      "zone": "Harbor Bridge",
+      "severity": "High",
+      "amount": 310,
+      "status": "Under review",
+      "currentStep": 2,
+      "details": "Zone movement and delivery logs are being reviewed. No action required from you."
+    },
+    {
+      "id": "claim_698",
+      "eventType": "Curfew restriction",
+      "date": "2026-03-17",
+      "zone": "Metro Ring",
+      "severity": "High",
+      "amount": 290,
+      "status": "Paid",
+      "currentStep": 4,
+      "details": "Verified and paid within seconds after the event window closed."
+    }
+  ]
+}
