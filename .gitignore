@@ -1,7 +1,7 @@
 # GigShield — root .gitignore
 # Covers all three services (gigshield-backend, gigshield-ml, gigshield-frontend)
 # since they're pushed together as one repo.
-
+.env.example
 # ── Secrets / local env overrides ───────────────────────────────────────────
 # .env.example stays tracked — it's the template. Only real, local .env files
 # (which may carry real Razorpay/JWT/SMS secrets) are ignored.
