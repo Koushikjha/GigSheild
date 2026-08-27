@@ -25,12 +25,7 @@ function RequireAuth() {
 function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { worker } = useAuth()
-  const location = useLocation()
   const workerName = worker?.fullName || 'Worker'
-
-  useEffect(() => {
-    setSidebarOpen(false)
-  }, [location.pathname])
 
   useEffect(() => {
     document.body.style.overflow = sidebarOpen ? 'hidden' : ''
@@ -49,7 +44,11 @@ function AppLayout() {
         onClick={() => setSidebarOpen(false)}
       />
 
-      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} onNavigate={() => setSidebarOpen(false)} />
+      <Sidebar
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        onNavigate={() => setSidebarOpen(false)}
+      />
 
       <div className="app-shell__content">
         <header className="app-topbar">
@@ -61,6 +60,7 @@ function AppLayout() {
           >
             ☰
           </button>
+
           <div className="app-topbar__copy">
             <p className="app-topbar__eyebrow">GigShield</p>
             <strong>{workerName}</strong>
@@ -71,6 +71,7 @@ function AppLayout() {
           <Outlet />
         </main>
       </div>
+
       <ToastHost />
     </div>
   )
@@ -84,6 +85,7 @@ export default function App() {
           <Routes>
             <Route path="/login" element={<LoginPage initialMode="login" />} />
             <Route path="/register" element={<LoginPage initialMode="register" />} />
+
             <Route element={<RequireAuth />}>
               <Route element={<AppLayout />}>
                 <Route index element={<Dashboard />} />
@@ -93,6 +95,7 @@ export default function App() {
                 <Route path="plans" element={<Plans />} />
               </Route>
             </Route>
+
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </ToastProvider>
