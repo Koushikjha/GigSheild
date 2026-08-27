@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PlanCard from '../components/PlanCard'
 import { getTiers } from '../api/policies'
-import { useAuth } from '../context/AuthContext'
-import { useToast } from '../context/ToastContext'
+import { useAuth } from '../context/useAuth'
+import { useToast } from '../context/useToast'
 
 export default function Plans() {
   const navigate = useNavigate()

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import MetricCard from '../components/MetricCard'
 import PolicyCard from '../components/PolicyCard'
 import StatusBanner from '../components/StatusBanner'
-import { useAuth } from '../context/AuthContext'
-import { useToast } from '../context/ToastContext'
+import { useAuth } from '../context/useAuth'
+import { useToast } from '../context/useToast'
 
 const currencyFormatter = new Intl.NumberFormat('en-IN', {
   style: 'currency',

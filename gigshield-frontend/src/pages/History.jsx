@@ -3,7 +3,7 @@ import { getClaims } from '../api/claims'
 import { getPolicyHistory } from '../api/policies'
 import PayoutRow from '../components/PayoutRow'
 import PolicyCard from '../components/PolicyCard'
-import { useToast } from '../context/ToastContext'
+import { useToast } from '../context/useToast'
 
 const currencyFormatter = new Intl.NumberFormat('en-IN', {
   style: 'currency',

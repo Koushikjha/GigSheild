@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getClaims, reportCancelledOrder } from '../api/claims'
 import ClaimItem from '../components/ClaimItem'
 import StatusBanner from '../components/StatusBanner'
-import { useToast } from '../context/ToastContext'
+import { useToast } from '../context/useToast'
 
 // datetime-local inputs work in the browser's local time with no timezone
 // suffix (e.g. "2026-08-27T14:30") — the backend takes that as a plain

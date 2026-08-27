@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import ToastHost from './components/ToastHost'
-import { AuthProvider, useAuth } from './context/AuthContext'
 import { ToastProvider } from './context/ToastContext'
 import BuyPolicy from './pages/BuyPolicy'
 import Claims from './pages/Claims'
@@ -10,6 +9,8 @@ import Dashboard from './pages/Dashboard'
 import History from './pages/History'
 import LoginPage from './pages/Login'
 import Plans from './pages/Plans'
+import { AuthProvider } from './context/AuthContext'
+import { useAuth } from './context/useAuth'
 
 function RequireAuth() {
   const { isAuthenticated } = useAuth()

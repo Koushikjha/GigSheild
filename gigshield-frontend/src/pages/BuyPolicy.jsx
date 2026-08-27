@@ -4,8 +4,8 @@ import { getTiers, purchasePolicy } from '../api/policies'
 import { createOrder } from '../api/payments'
 import PremiumCalc from '../components/PremiumCalc'
 import { getTierDisplay } from '../constants/plans'
-import { useAuth } from '../context/AuthContext'
-import { useToast } from '../context/ToastContext'
+import { useAuth } from '../context/useAuth'
+import { useToast } from '../context/useToast'
 
 const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID || ''
 
