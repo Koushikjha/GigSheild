@@ -40,7 +40,7 @@ spring:
   # ── MongoDB (Claims / Events) ───────────────────────────────────────────────
   data:
     mongodb:
-      uri: ${MONGO_URI:mongodb+srv://root:rootroot@cluster0.tk3ezln.mongodb.net/gigshield?appName=Cluster0}
+      uri: ${MONGO_URI}
       auto-index-creation: true
 
     # ── Redis (Sessions / Cache) ──────────────────────────────────────────────
