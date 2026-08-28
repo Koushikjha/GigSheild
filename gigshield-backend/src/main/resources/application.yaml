@@ -11,8 +11,6 @@ spring:
   # ── MySQL (JPA) ────────────────────────────────────────────────────────────
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3306/gigshield?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Kolkata&allowPublicKeyRetrieval=true}
-    #username: ${DB_USERNAME:root}
-    #password: ${DB_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       pool-name: GigShieldHikariPool
